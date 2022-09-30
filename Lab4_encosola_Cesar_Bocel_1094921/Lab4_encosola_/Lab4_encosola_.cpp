@@ -30,6 +30,16 @@ void agregar(Tlista& lista, int valor)
         t->sig = q;
     }
 }
+void clear(Tlista& lista)
+{
+    struct nodo* p;
+    while (lista != NULL)
+    {
+        p = lista;
+        lista = lista->sig;
+        delete(p);
+    }
+}
 int insertarAntesoDespues()
 {
     int _op, band;
