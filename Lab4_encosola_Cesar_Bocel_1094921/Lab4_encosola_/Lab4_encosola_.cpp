@@ -86,7 +86,6 @@ void insertar(Tlista& lista, int valor, int pos)
     }
     cout << "   Error...Posicion no encontrada..!" << endl;
 }
-
 void MostrarLista(Tlista lista)
 {
     int i = 0;
@@ -97,4 +96,23 @@ void MostrarLista(Tlista lista)
         i++;
     }
 
+}
+void buscarElemento(Tlista lista, int valor)
+{
+    Tlista q = lista;
+    int i = 1, band = 0;
+
+    while (q != NULL)
+    {
+        if (q->nodo == valor)
+        {
+            cout << endl << " Encontrada en posicion " << i << endl;
+            band = 1;
+        }
+        q = q->sig;
+        i++;
+    }
+
+    if (band == 0)
+        cout << "\n\n Numero no encontrado..!" << endl;
 }
