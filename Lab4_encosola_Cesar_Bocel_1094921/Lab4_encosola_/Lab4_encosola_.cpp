@@ -116,3 +116,13 @@ void buscarElemento(Tlista lista, int valor)
     if (band == 0)
         cout << "\n\n Numero no encontrado..!" << endl;
 }
+void contarLista(Tlista lista)
+{
+    int contador = 0;
+    while (lista != NULL)
+    {
+        lista = lista->sig;
+        contador++;
+    }
+    cout << "la cantidad de la lista es de " << contador << endl;
+}
