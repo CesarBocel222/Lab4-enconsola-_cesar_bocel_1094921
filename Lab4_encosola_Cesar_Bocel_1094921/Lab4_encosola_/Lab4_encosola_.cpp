@@ -86,3 +86,15 @@ void insertar(Tlista& lista, int valor, int pos)
     }
     cout << "   Error...Posicion no encontrada..!" << endl;
 }
+
+void MostrarLista(Tlista lista)
+{
+    int i = 0;
+    while (lista != NULL)
+    {
+        cout << ' ' << i + 1 << ") " << lista->nodo << endl;
+        lista = lista->sig;
+        i++;
+    }
+
+}
