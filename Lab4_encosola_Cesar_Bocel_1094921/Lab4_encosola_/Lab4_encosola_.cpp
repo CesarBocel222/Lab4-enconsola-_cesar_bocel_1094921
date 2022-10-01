@@ -138,3 +138,30 @@ void UltimaPosicion(Tlista lista)
     }
     cout << "la cantidad final de la lista es de " << mostrar << endl;
 }
+void eliminarElemento(Tlista& lista, int valor)
+{
+    Tlista p, ant;
+    p = lista;
+
+    if (lista != NULL)
+    {
+        while (p != NULL)
+        {
+            if (p->nodo == valor)
+            {
+                if (p == lista)
+                    lista = lista->sig;
+                else
+                    ant->sig = p->sig;
+
+                delete(p);
+                return;
+            }
+            ant = p;
+            p = p->sig;
+        }
+        cout << " Lista vaciada";
+    }
+    else
+        cout << " Lista vacia..!";
+}
