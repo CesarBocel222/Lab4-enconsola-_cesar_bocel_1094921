@@ -177,8 +177,21 @@ void menu1()
     cout << " 6. Buscar elemento                 " << endl;
     cout << " 7. Eliminar un elemento            " << endl;
     cout << " 8. Ultima posicion                 " << endl;
-    cout << " 9. Finalizar                       " << endl;
+    cout << " 9. Ir a Ejercicio2                 " << endl;
+    cout << " 10. Finalizar                      " << endl;
 
+
+    cout << "\n INGRESE OPCION: ";
+}
+void menu2()
+{
+    cout << "\n\t\tLISTA ENLAZADA SIMPLE\n\n";
+    cout << " 1. Agregar carta                   " << endl;
+    cout << " 2. sacar carta alazar              " << endl;
+    cout << " 3. Mostrar lista                   " << endl;
+    cout << " 4. Insertar en una posicion        " << endl;
+    cout << " 5. Eliminar una carta              " << endl; 
+    cout << " 6. Finalizar                       " << endl;
 
     cout << "\n INGRESE OPCION: ";
 }
@@ -227,7 +240,6 @@ int main()
 
 
         case 6:
-
             cout << "\n Valor a buscar: "; cin >> _dato;
             buscarElemento(lista, _dato);
             break;
@@ -250,7 +262,53 @@ int main()
 
     } while (opcion != 9);
 
+    do
+    {
+        menu2();  cin >> opcion;
+
+        switch (opcion)
+        {
+        case 1:
+            cout << "\n Numero a agregar: "; cin >> _dato;
+            agregar(lista, _dato);
+            break;
+
+        case 2:
+            cout << "\n Lista borrada\n\n";
+            clear(lista);
+            break;
+
+        case 3:
+            cout << "\n Cantidad en la lista\n\n";
+            contarLista(lista);
+            break;
+
+
+        case 4:
+
+            cout << "\n Numero a insertar: "; cin >> _dato;
+            cout << " Posicion : ";       cin >> pos;
+            insertar(lista, _dato, pos);
+            break;
+
+
+        case 5:
+            cout << "\n\n Mostrar lista\n\n";
+            MostrarLista(lista);
+            break;
+
+            cout << endl << endl;
+            system("pause");  system("cls");
+        }
+    } while (opcion != 6);
+    system("pause");
 
     system("pause");
     return 0;
 }
+struct carta {
+    int numero = 0;
+    char color = 'R';
+    struct numero* sig;
+    typedef struct carta* Tlistacarta;
+};
