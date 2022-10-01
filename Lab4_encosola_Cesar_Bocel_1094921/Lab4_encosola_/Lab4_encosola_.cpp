@@ -228,7 +228,6 @@ void agregarcartasC(Tlistacarta& lista, char col)
         t->sig = q;
     }
 }
-
 void Mostrarcartas(Tlistacarta lista)
 {
     int i = 0;
@@ -240,7 +239,66 @@ void Mostrarcartas(Tlistacarta lista)
     }
 
 }
+void insertarN(Tlistacarta& lista, int valor,int pos)
+{
+    Tlistacarta q, t;
+    int i;
+    q = new(struct carta);
+    q->numero = valor;
 
+    if (pos == 1)
+    {
+        q->sig = lista;
+        lista = q;
+    }
+    else
+    {
+        int x = insertarAntesoDespues();
+        t = lista;
+
+        for (i = 1; t != NULL; i++)
+        {
+            if (i == pos + x)
+            {
+                q->sig = t->sig;
+                t->sig = q;
+                return;
+            }
+            t = t->sig;
+        }
+    }
+    cout << "   Error...Posicion no encontrada..!" << endl;
+}
+void insertarC(Tlistacarta& lista,char color, int pos)
+{
+    Tlistacarta q, t;
+    int i;
+    q = new(struct carta);
+    q->color = color;
+
+    if (pos == 1)
+    {
+        q->sig = lista;
+        lista = q;
+    }
+    else
+    {
+        int x = insertarAntesoDespues();
+        t = lista;
+
+        for (i = 1; t != NULL; i++)
+        {
+            if (i == pos + x)
+            {
+                q->sig = t->sig;
+                t->sig = q;
+                return;
+            }
+            t = t->sig;
+        }
+    }
+    cout << "   Error...Posicion no encontrada..!" << endl;
+}
 
 void menu2()
 {
@@ -362,12 +420,12 @@ int main()
 
 
         case 4:
-
-            cout << "\n Numero a insertar: "; cin >> _dato;
+            cout << "\n Insertar carta a mover: "; cin >> _dato;
+            cout << "\n Ingrese color: "; cin >> _color;
             cout << " Posicion : ";       cin >> pos;
-            insertar(lista, _dato, pos);
+            insertarN(lcartas, _dato, pos);
+            insertarC(lcartas, pos, pos);
             break;
-
 
         case 5:
             cout << "\n\n Mostrar lista\n\n";
