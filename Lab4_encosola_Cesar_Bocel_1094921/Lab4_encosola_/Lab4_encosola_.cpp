@@ -126,3 +126,15 @@ void contarLista(Tlista lista)
     }
     cout << "la cantidad de la lista es de " << contador << endl;
 }
+void UltimaPosicion(Tlista lista)
+{
+    int contador = 0;
+    int mostrar = 0;
+    while (lista != NULL)
+    {
+        mostrar = lista->nodo;
+        lista = lista->sig;
+        contador++;
+    }
+    cout << "la cantidad final de la lista es de " << mostrar << endl;
+}
