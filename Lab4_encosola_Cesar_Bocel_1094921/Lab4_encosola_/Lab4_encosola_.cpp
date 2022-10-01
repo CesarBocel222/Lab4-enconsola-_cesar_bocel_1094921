@@ -7,8 +7,8 @@ struct nodo {
     int nodo;        // en este caso es un numero entero
     struct nodo* sig;
 };
-
 typedef struct nodo* Tlista;
+
 
 void agregar(Tlista& lista, int valor)
 {
@@ -178,11 +178,70 @@ void menu1()
     cout << " 7. Eliminar un elemento            " << endl;
     cout << " 8. Ultima posicion                 " << endl;
     cout << " 9. Ir a Ejercicio2                 " << endl;
-    cout << " 10. Finalizar                      " << endl;
 
 
     cout << "\n INGRESE OPCION: ";
 }
+struct carta {
+    int numero = 0;
+    char color = 'R';
+    struct carta* sig;
+};
+    typedef struct carta* Tlistacarta;
+void agregarcartasN(Tlistacarta& lista, int valor)
+{
+    Tlistacarta t, q= new(struct carta);
+    q->numero = valor;
+    q ->sig = NULL;
+
+    if (lista == NULL)
+    {
+        lista = q;
+    }
+    else
+    {
+        t = lista;
+        while (t->sig != NULL)
+        {
+            t = t->sig;
+        }
+        t->sig = q;
+    }
+}
+void agregarcartasC(Tlistacarta& lista, char col)
+{
+    Tlistacarta t, q = new(struct carta);
+    q->color = col;
+    q->sig = NULL;
+
+    if (lista == NULL)
+    {
+        lista = q;
+    }
+    else
+    {
+        t = lista;
+        while (t->sig != NULL)
+        {
+            t = t->sig;
+        }
+        t->sig = q;
+    }
+}
+
+void Mostrarcartas(Tlistacarta lista)
+{
+    int i = 0;
+    while (lista != NULL)
+    {
+        cout << ' ' << i + 1 << ") " << lista->numero  << lista->color << endl;
+        lista = lista->sig;
+        i++;
+    }
+
+}
+
+
 void menu2()
 {
     cout << "\n\t\tLISTA ENLAZADA SIMPLE\n\n";
@@ -199,9 +258,11 @@ void menu2()
 int main()
 {
     Tlista lista = NULL;
+    Tlistacarta lcartas = NULL;
     int opcion;     
     int _dato;  // elemenento a ingresar
     int pos;    // posicion a insertar
+    char _color; //color de la carta
 
     do
     {
@@ -270,17 +331,19 @@ int main()
         {
         case 1:
             cout << "\n Numero a agregar: "; cin >> _dato;
-            agregar(lista, _dato);
+            cout << "\n Ingrese color: "; cin >> _color;
+            agregarcartasN(lcartas, _dato);
+            agregarcartasC(lcartas, _color);
             break;
 
         case 2:
-            cout << "\n Lista borrada\n\n";
+            cout << "\n La carta es \n\n";
             clear(lista);
             break;
 
         case 3:
             cout << "\n Cantidad en la lista\n\n";
-            contarLista(lista);
+            Mostrarcartas(lcartas);
             break;
 
 
@@ -306,9 +369,3 @@ int main()
     system("pause");
     return 0;
 }
-struct carta {
-    int numero = 0;
-    char color = 'R';
-    struct numero* sig;
-    typedef struct carta* Tlistacarta;
-};
