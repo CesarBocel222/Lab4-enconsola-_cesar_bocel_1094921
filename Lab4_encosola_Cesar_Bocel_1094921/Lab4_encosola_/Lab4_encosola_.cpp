@@ -337,8 +337,22 @@ int main()
             break;
 
         case 2:
-            cout << "\n La carta es \n\n";
-            clear(lista);
+            if (lcartas == NULL)
+            {
+                cout << "\n No hay cartas ";
+            }
+            else
+            {
+                int random = rand();
+                int i = 0;
+                while (lista != NULL)
+                {
+                    i++;
+                }
+                random = rand() % i;
+                cout << "\n La carta en la poscicion " << i << endl;
+            }
+
             break;
 
         case 3:
