@@ -165,3 +165,92 @@ void eliminarElemento(Tlista& lista, int valor)
     else
         cout << " Lista vacia..!";
 }
+
+void menu1()
+{
+    cout << "\n\t\tLISTA ENLAZADA SIMPLE\n\n";
+    cout << " 1. Agregar a la lista              " << endl;
+    cout << " 2. Limpiar lista                   " << endl;
+    cout << " 3. Mostrar cantidad                " << endl;
+    cout << " 4. Insertar en una posicion        " << endl;
+    cout << " 5. Mostrar lista                   " << endl;
+    cout << " 6. Buscar elemento                 " << endl;
+    cout << " 7. Eliminar un elemento            " << endl;
+    cout << " 8. Ultima posicion                 " << endl;
+    cout << " 9. Finalizar                       " << endl;
+
+
+    cout << "\n INGRESE OPCION: ";
+}
+
+int main()
+{
+    Tlista lista = NULL;
+    int opcion;     
+    int _dato;  // elemenento a ingresar
+    int pos;    // posicion a insertar
+
+    do
+    {
+        menu1();  cin >> opcion;
+
+        switch (opcion)
+        {
+        case 1:
+            cout << "\n Numero a agregar: "; cin >> _dato;
+            agregar(lista, _dato);
+            break;
+
+        case 2:
+            cout << "\n Lista borrada\n\n";
+            clear(lista);
+            break;
+
+        case 3:
+            cout << "\n Cantidad en la lista\n\n";
+            contarLista(lista);
+            break;
+
+
+        case 4:
+
+            cout << "\n Numero a insertar: "; cin >> _dato;
+            cout << " Posicion : ";       cin >> pos;
+            insertar(lista, _dato, pos);
+            break;
+
+
+        case 5:
+            cout << "\n\n Mostrar lista\n\n";
+            MostrarLista(lista);
+            break;
+
+
+        case 6:
+
+            cout << "\n Valor a buscar: "; cin >> _dato;
+            buscarElemento(lista, _dato);
+            break;
+
+        case 7:
+
+            cout << "\n Valor a eliminar: "; cin >> _dato;
+
+            eliminarElemento(lista, _dato);
+            break;
+
+        case 8:
+            cout << "\n Cantidad en la lista\n\n";
+            UltimaPosicion(lista);
+            break;
+        }
+
+        cout << endl << endl;
+        system("pause");  system("cls");
+
+    } while (opcion != 9);
+
+
+    system("pause");
+    return 0;
+}
