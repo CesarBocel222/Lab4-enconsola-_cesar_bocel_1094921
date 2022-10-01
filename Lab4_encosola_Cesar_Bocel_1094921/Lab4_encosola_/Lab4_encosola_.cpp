@@ -299,7 +299,6 @@ void insertarC(Tlistacarta& lista,char color, int pos)
     }
     cout << "   Error...Posicion no encontrada..!" << endl;
 }
-
 void menu2()
 {
     cout << "\n\t\tLISTA ENLAZADA SIMPLE\n\n";
@@ -307,9 +306,20 @@ void menu2()
     cout << " 2. sacar carta alazar              " << endl;
     cout << " 3. Mostrar lista                   " << endl;
     cout << " 4. Insertar en una posicion        " << endl;
-    cout << " 5. Eliminar una carta              " << endl; 
-    cout << " 6. Finalizar                       " << endl;
+    cout << " 5. Finalizar                       " << endl;
 
+    
+    cout << " TABLERO                            " << endl; 
+    cout << "  G1    G2     G3    G4    G5    G6   G7    " << endl;
+    cout << "  1)    2)     3)    4)    5)    6)   7)   " << endl;
+    cout << "        8)     9)    10)   11)   12)  13)  " << endl;
+    cout << "               14)   15)   16)   17)  18)  " << endl;
+    cout << "                     19)   20)   21)  22)  " << endl;
+    cout << "                           23)   24)  25)  " << endl;
+    cout << "                           26)   27)  28)  " << endl;
+    cout << "                                 29)  30)  " << endl;
+    cout << "                                      31)  " << endl;
+    cout << "\n\t\t\n\n";
     cout << "\n INGRESE OPCION: ";
 }
 
@@ -389,9 +399,21 @@ int main()
         {
         case 1:
             cout << "\n Numero a agregar: "; cin >> _dato;
+            if (_dato >= 1 && _dato <=13)
+            {
+                agregarcartasN(lcartas, _dato);
+            }
+            else
+            {
+                cout << "\n Error ";
+                break;
+            }
             cout << "\n Ingrese color: "; cin >> _color;
-            agregarcartasN(lcartas, _dato);
-            agregarcartasC(lcartas, _color);
+            cout << "\n Importante poner en mayusculas ";
+            if (_color == 'N' || _color == 'R')
+            {
+                agregarcartasC(lcartas, _color);
+            }
             break;
 
         case 2:
@@ -427,15 +449,10 @@ int main()
             insertarC(lcartas, pos, pos);
             break;
 
-        case 5:
-            cout << "\n\n Mostrar lista\n\n";
-            MostrarLista(lista);
-            break;
-
             cout << endl << endl;
             system("pause");  system("cls");
         }
-    } while (opcion != 6);
+    } while (opcion != 5);
     system("pause");
 
     system("pause");
